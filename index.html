@@ -70,7 +70,7 @@
   /* Ветка на первом экране */
   .branch {
     position: absolute; z-index: 0; pointer-events: none;
-    right: max(-2rem, calc((100vw - 72rem) / 2 - 2rem));
+    right: max(-3rem, calc((100vw - 72rem) / 2 - 3rem));
     bottom: -1rem; height: min(100%, 46rem); width: auto; aspect-ratio: 300 / 620;
   }
   .branch .stem { fill: none; stroke: var(--ink-soft); stroke-width: 1.6; stroke-linecap: round;
@@ -85,8 +85,13 @@
   @keyframes grow { to { transform: scale(1); } }
   @keyframes sway { from { transform: rotate(-1.2deg); } to { transform: rotate(1.6deg); } }
 
+  /* Текст первого экрана не заходит под ветку */
+  @media (min-width: 60.01rem) {
+    .refuse, .hero h1, .hero .lead { max-width: min(var(--hero-text, 100%), calc(100% - 17rem)); }
+  }
   @media (max-width: 60rem) {
-    .branch { opacity: .35; height: 80%; right: -4rem; }
+    /* На узком экране стебель уходит за правый край, видны только кончики листьев */
+    .branch { opacity: .35; height: 40rem; right: -9.75rem; }
   }
 
   /* Веточки у разделов */
@@ -138,6 +143,28 @@
   .btn-quiet { background: transparent; color: var(--plum); box-shadow: inset 0 0 0 1.5px var(--plum); }
   .btn-quiet:hover { background: var(--plum); color: var(--white); }
   .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+  /* Кнопки записи: блик проходит по кнопке, от краёв расходится волна */
+  .btn-cta { position: relative; isolation: isolate; --wave: rgba(91,55,84,.45); --wave-end: rgba(91,55,84,0); --shine: rgba(255,255,255,.38); }
+  .btn-cta::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(110deg, transparent 35%, var(--shine) 50%, transparent 65%) no-repeat;
+    background-size: 250% 100%; background-position: 150% 0;
+    animation: shine 5s ease-in-out 3.2s infinite;
+  }
+  .btn-cta::after {
+    content: ""; position: absolute; inset: 0; z-index: -2; border-radius: inherit; pointer-events: none;
+    box-shadow: 0 0 0 0 var(--wave);
+    animation: wave 5s ease-out 3.6s infinite;
+  }
+  .btn-cta:hover::after, .btn-cta:focus-visible::after { animation-duration: 1.6s; animation-delay: 0s; }
+  .btn-cta:hover { box-shadow: 0 0 1.4rem -.2rem var(--wave); }
+  @keyframes shine { 0% { background-position: 150% 0; } 30%, 100% { background-position: -50% 0; } }
+  @keyframes wave {
+    0% { box-shadow: 0 0 0 0 var(--wave); }
+    45% { box-shadow: 0 0 0 .9rem var(--wave-end); }
+    46%, 100% { box-shadow: 0 0 0 0 var(--wave-end); }
+  }
 
   /* Секции */
   section { scroll-margin-top: 1rem; }
@@ -199,6 +226,7 @@
   .contact .section-head p { color: var(--mist); }
   .contact .btn { background: var(--paper); color: var(--ink); }
   .contact .btn:hover { background: var(--white); }
+  .contact .btn-cta { --wave: rgba(238,242,238,.5); --wave-end: rgba(238,242,238,0); --shine: rgba(183,203,189,.75); }
   .contact .btn-quiet { background: transparent; color: var(--paper); box-shadow: inset 0 0 0 1.5px var(--paper); }
   .contact .btn-quiet:hover { background: var(--paper); color: var(--ink); }
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1.5rem 3rem; margin: 0 0 2.5rem; }
@@ -217,6 +245,7 @@
     .branch .sway { animation: none; }
     .sprig .s-stem, .sprig .s-leaf { transition: none; }
     .zone-photo img, .zone-photo img + img { animation: none; }
+    .btn-cta::before, .btn-cta::after { animation: none; }
   }
   @media (max-width: 34rem) {
     .zone li { flex-wrap: wrap; }
@@ -256,7 +285,7 @@
     <h1>Салон красоты в центре Москвы, где уход не повреждает</h1>
     <p class="lead">Волосы, ногти, лицо и тело – только неповреждающие методики. Мастер сначала смотрит, в каком состоянии волосы или кожа, и только потом предлагает процедуру.</p>
     <div class="actions">
-      <a class="btn" href="#kontakty">Записаться</a>
+      <a class="btn btn-cta" href="#kontakty">Записаться</a>
       <a class="btn btn-quiet" href="#uslugi">Посмотреть цены</a>
     </div>
   </section>
@@ -399,7 +428,7 @@
         <div><dt>Телефон</dt><dd><a href="tel:+74950000000">+7 495 000-00-00</a></dd></div>
       </dl>
       <div class="actions">
-        <a class="btn" href="tel:+74950000000">Позвонить</a>
+        <a class="btn btn-cta" href="tel:+74950000000">Позвонить</a>
         <a class="btn btn-quiet" href="https://t.me/" rel="noopener">Написать в Telegram</a>
       </div>
     </div>
