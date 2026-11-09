@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Салон красоты в центре Москвы – бережный уход без повреждающих методик | Бережно</title>
+<meta name="description" content="Студия «Бережно» в центре Москвы: безаммиачное окрашивание, японский и spa-маникюр, уходовая косметология, массаж, шугаринг, ламинирование ресниц и бровей. Только неповреждающие методики, без уколов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Piazzolla:ital,opsz,wght@0,8..30,300..700;1,8..30,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF2EE;
+    --white: #FAFCFA;
+    --mist: #D5DFD9;
+    --ink: #1F2D2C;
+    --ink-soft: #4A5A58;
+    --plum: #5B3754;
+    --rose: #C2546A;
+    --leaf: #B7CBBD;
+    --leaf-deep: #8FAA98;
+
+    --serif: "Piazzolla", Georgia, serif;
+    --sans: "Golos Text", system-ui, sans-serif;
+
+    --step--1: 0.875rem;
+    --step-0: 1.0625rem;
+    --step-1: 1.3125rem;
+    --step-2: 1.75rem;
+    --step-3: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+    --step-4: clamp(2.4rem, 1.2rem + 5.4vw, 5.25rem);
+
+    --gutter: clamp(1rem, 4vw, 3.5rem);
+    --measure: 38rem;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 var(--step-0)/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Шапка */
+  .top {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 2rem;
+    flex-wrap: wrap; padding-top: 1.5rem; padding-bottom: 1.5rem;
+  }
+  .brand { font: italic 500 var(--step-2)/1 var(--serif); text-decoration: none; letter-spacing: -0.01em; }
+  .brand small { display: block; font: 400 var(--step--1)/1.3 var(--sans); font-style: normal; color: var(--ink-soft); margin-top: .35rem; letter-spacing: 0; }
+  .top nav { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: var(--step--1); }
+  .top nav a { text-decoration: none; padding: .25rem 0; border-bottom: 1px solid transparent; }
+  .top nav a:hover { border-bottom-color: currentColor; }
+  .top .phone { font-weight: 600; }
+
+  /* Первый экран */
+  .hero-zone { position: relative; overflow: clip; }
+  .hero { position: relative; z-index: 1; padding-top: clamp(2rem, 8vw, 6rem); padding-bottom: clamp(3rem, 9vw, 7rem); }
+
+  /* Ветка на первом экране */
+  .branch {
+    position: absolute; z-index: 0; pointer-events: none;
+    right: max(-2rem, calc((100vw - 72rem) / 2 - 2rem));
+    bottom: -1rem; height: min(100%, 46rem); width: auto; aspect-ratio: 300 / 620;
+  }
+  .branch .stem { fill: none; stroke: var(--ink-soft); stroke-width: 1.6; stroke-linecap: round;
+    stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.4s cubic-bezier(.4,0,.2,1) .2s forwards; }
+  .branch .blade { fill: var(--leaf); stroke: var(--ink-soft); stroke-width: 1.1; stroke-linejoin: round; }
+  .branch .alt .blade { fill: var(--leaf-deep); }
+  .branch .vein { fill: none; stroke: var(--ink-soft); stroke-width: .8; stroke-linecap: round; opacity: .7; }
+  .branch .bud { fill: var(--rose); }
+  .branch .leaf, .branch .bud { transform: scale(0); animation: grow .9s cubic-bezier(.3,1.4,.5,1) var(--d, 1s) forwards; }
+  .branch .sway { transform-origin: 160px 615px; animation: sway 7s ease-in-out 3s infinite alternate; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes grow { to { transform: scale(1); } }
+  @keyframes sway { from { transform: rotate(-1.2deg); } to { transform: rotate(1.6deg); } }
+
+  @media (max-width: 60rem) {
+    .branch { opacity: .35; height: 80%; right: -4rem; }
+  }
+
+  /* Веточки у разделов */
+  .sprig { display: block; width: 4.5rem; height: auto; margin-bottom: 1rem; overflow: visible; }
+  .sprig .s-stem { fill: none; stroke: var(--rose); stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1); }
+  .sprig .s-leaf { fill: var(--leaf); stroke: var(--ink-soft); stroke-width: 1; transform: scale(0); transition: transform .7s cubic-bezier(.3,1.4,.5,1); }
+  .sprig .s-leaf:nth-of-type(2) { transition-delay: .45s; }
+  .sprig .s-leaf:nth-of-type(3) { transition-delay: .7s; }
+  .sprig .s-leaf:nth-of-type(4) { transition-delay: .95s; }
+  .sprig.is-in .s-stem { stroke-dashoffset: 0; }
+  .sprig.is-in .s-leaf { transform: scale(1); }
+  .contact .sprig .s-leaf { fill: var(--leaf-deep); stroke: var(--paper); }
+
+  /* Лист на фоне контактов */
+  .contact { position: relative; overflow: clip; }
+  .contact .wrap { position: relative; z-index: 1; }
+  .big-leaf { position: absolute; right: -6rem; top: 50%; width: min(34rem, 80vw); transform: translateY(-50%) rotate(-28deg); opacity: .09; pointer-events: none; }
+  .big-leaf path { fill: none; stroke: var(--paper); stroke-width: 2; }
+  .big-leaf .bl-blade { fill: var(--paper); fill-opacity: .35; }
+  .refuse {
+    list-style: none; margin: 0 0 clamp(2rem, 5vw, 3.5rem); padding: 0;
+    font: 300 var(--step-4)/1.08 var(--serif); letter-spacing: -0.02em; color: var(--ink-soft);
+  }
+  .refuse li { margin: 0; }
+  /* Перечёркивание фоном: работает и когда фраза переносится на вторую строку */
+  .refuse .x {
+    background: linear-gradient(var(--rose), var(--rose)) no-repeat 0 58% / 0% 0.07em;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    animation: strike .55s cubic-bezier(.6,.05,.3,1) forwards;
+  }
+  .refuse li:nth-child(1) .x { animation-delay: .35s; }
+  .refuse li:nth-child(2) .x { animation-delay: .75s; }
+  .refuse li:nth-child(3) .x { animation-delay: 1.15s; }
+  .refuse li:nth-child(4) .x { animation-delay: 1.55s; }
+  @keyframes strike { to { background-size: 100% 0.07em; } }
+
+  .hero h1 {
+    margin: 0 0 1.25rem; max-width: 22ch;
+    font: 500 var(--step-3)/1.12 var(--serif); letter-spacing: -0.015em; color: var(--ink);
+  }
+  .hero .lead { max-width: var(--measure); margin: 0 0 2rem; color: var(--ink-soft); font-size: var(--step-1); line-height: 1.5; }
+
+  .btn {
+    display: inline-block; padding: .95rem 1.6rem; border-radius: 999px;
+    background: var(--plum); color: var(--white); text-decoration: none; font-weight: 500;
+    transition: background-color .2s;
+  }
+  .btn:hover { background: var(--ink); }
+  .btn-quiet { background: transparent; color: var(--plum); box-shadow: inset 0 0 0 1.5px var(--plum); }
+  .btn-quiet:hover { background: var(--plum); color: var(--white); }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+  /* Секции */
+  section { scroll-margin-top: 1rem; }
+  .section-head { max-width: var(--measure); margin-bottom: clamp(2rem, 5vw, 3rem); }
+  .section-head h2 { margin: 0 0 .75rem; font: 500 var(--step-3)/1.12 var(--serif); letter-spacing: -0.015em; }
+  .section-head p { margin: 0; color: var(--ink-soft); }
+
+  /* Прейскурант */
+  .menu { background: var(--white); padding: clamp(3rem, 8vw, 6rem) 0; }
+  .zones { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr)); gap: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem); }
+  /* Фото зон: арка, в ней два кадра сменяют друг друга */
+  .zone-photo {
+    position: relative; margin: 0 0 1.5rem; aspect-ratio: 4 / 3; overflow: hidden;
+    border-radius: 50% 50% .75rem .75rem / 38% 38% .75rem .75rem;
+    background: var(--mist);
+  }
+  .zone-photo img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+    animation: drift 14s ease-in-out infinite alternate;
+  }
+  .zone-photo img + img { opacity: 0; animation: drift 14s ease-in-out infinite alternate, swap 12s ease-in-out infinite; }
+  .zone:nth-child(2) .zone-photo img { animation-delay: -3s; }
+  .zone:nth-child(3) .zone-photo img { animation-delay: -6s; }
+  .zone:nth-child(4) .zone-photo img { animation-delay: -9s; }
+  @keyframes swap { 0%, 38% { opacity: 0; } 50%, 88% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes drift { from { transform: scale(1); } to { transform: scale(1.08); } }
+  .zone-photo::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(31,45,44,.12);
+  }
+
+  .zone h3 { margin: 0 0 .35rem; font: 500 var(--step-2)/1.2 var(--serif); }
+  .zone .how { margin: 0 0 1.25rem; color: var(--ink-soft); font-size: var(--step--1); max-width: 34rem; }
+  .zone .how b { color: var(--plum); font-weight: 600; }
+  .zone ul { list-style: none; margin: 0; padding: 0; }
+  .zone li {
+    display: flex; align-items: baseline; gap: .5rem;
+    padding: .55rem 0; border-top: 1px solid var(--mist);
+  }
+  .zone li:last-child { border-bottom: 1px solid var(--mist); }
+  .zone .name { flex: 1 1 auto; }
+  .zone .time { color: var(--ink-soft); font-size: var(--step--1); white-space: nowrap; }
+  .zone .price { min-width: 6.5rem; text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+  .menu .note { margin: 2.5rem 0 0; font-size: var(--step--1); color: var(--ink-soft); }
+
+  /* Визит */
+  .visit { padding: clamp(3rem, 8vw, 6rem) 0; }
+  .steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 0; max-width: 52rem; }
+  .steps li {
+    counter-increment: step; display: grid; grid-template-columns: 3.5rem 1fr; gap: 0 1rem;
+    padding: 1.25rem 0; border-top: 1px solid var(--mist);
+  }
+  .steps li::before { content: counter(step); grid-row: span 2; font: 300 var(--step-3)/1 var(--serif); color: var(--rose); }
+  .steps h3 { margin: 0 0 .25rem; font: 600 var(--step-0)/1.4 var(--sans); }
+  .steps p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+
+  /* Контакты */
+  .contact { background: var(--ink); color: var(--paper); padding: clamp(3rem, 8vw, 6rem) 0; }
+  .contact .section-head p { color: var(--mist); }
+  .contact .btn { background: var(--paper); color: var(--ink); }
+  .contact .btn:hover { background: var(--white); }
+  .contact .btn-quiet { background: transparent; color: var(--paper); box-shadow: inset 0 0 0 1.5px var(--paper); }
+  .contact .btn-quiet:hover { background: var(--paper); color: var(--ink); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1.5rem 3rem; margin: 0 0 2.5rem; }
+  .facts dt { font-size: var(--step--1); color: var(--mist); margin-bottom: .2rem; }
+  .facts dd { margin: 0; font-size: var(--step-1); line-height: 1.35; }
+  .contact :focus-visible { outline-color: var(--paper); }
+
+  footer { background: var(--ink); color: var(--mist); font-size: var(--step--1); padding: 0 0 2rem; }
+  footer .wrap { border-top: 1px solid rgba(213,223,217,.25); padding-top: 1.25rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .refuse .x { animation: none; background-size: 100% 0.07em; }
+    .branch .stem { animation: none; stroke-dashoffset: 0; }
+    .branch .leaf, .branch .bud { animation: none; transform: none; }
+    .branch .sway { animation: none; }
+    .sprig .s-stem, .sprig .s-leaf { transition: none; }
+    .zone-photo img, .zone-photo img + img { animation: none; }
+  }
+  @media (max-width: 34rem) {
+    .zone li { flex-wrap: wrap; }
+    .zone .name { flex-basis: 100%; }
+    .zone .price { margin-left: auto; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="leaf-blade" d="M0 0 C 18 -22, 58 -26, 92 -6 C 60 8, 22 12, 0 0 Z"/>
+    <path id="leaf-vein" d="M5 0 Q 45 -5 86 -6"/>
+  </defs>
+</svg>
+
+<div class="hero-zone">
+<header class="wrap top">
+  <a class="brand" href="#">Бережно<small>студия ухода в центре Москвы</small></a>
+  <nav aria-label="Разделы">
+    <a href="#uslugi">Услуги и цены</a>
+    <a href="#vizit">Как проходит визит</a>
+    <a href="#kontakty">Контакты</a>
+    <a class="phone" href="tel:+74950000000">+7 495 000-00-00</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <ul class="refuse" aria-label="Чего в студии не делают">
+      <li><span class="x">аммиак в краске</span></li>
+      <li><span class="x">фреза по живой кутикуле</span></li>
+      <li><span class="x">уколы и филлеры</span></li>
+      <li><span class="x">«потерпите, так надо»</span></li>
+    </ul>
+    <h1>Салон красоты в центре Москвы, где уход не повреждает</h1>
+    <p class="lead">Волосы, ногти, лицо и тело – только неповреждающие методики. Мастер сначала смотрит, в каком состоянии волосы или кожа, и только потом предлагает процедуру.</p>
+    <div class="actions">
+      <a class="btn" href="#kontakty">Записаться</a>
+      <a class="btn btn-quiet" href="#uslugi">Посмотреть цены</a>
+    </div>
+  </section>
+
+  <svg class="branch" viewBox="0 0 300 620" aria-hidden="true" focusable="false">
+    <g class="sway">
+      <path class="stem" pathLength="1" d="M160 615 C 148 520, 176 440, 156 350 S 134 190, 160 110 S 178 40, 172 18"/>
+      <g transform="translate(156 540) rotate(-158) scale(1.05)"><g class="leaf" style="--d:.55s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(162 488) rotate(-28) scale(1.1)"><g class="leaf alt" style="--d:.8s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(160 420) rotate(-150) scale(.95)"><g class="leaf alt" style="--d:1.05s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(155 365) rotate(-35) scale(.95)"><g class="leaf" style="--d:1.3s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(146 300) rotate(-160) scale(.85)"><g class="leaf" style="--d:1.55s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(145 240) rotate(-30) scale(.8)"><g class="leaf alt" style="--d:1.8s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(150 180) rotate(-152) scale(.7)"><g class="leaf alt" style="--d:2.0s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(160 122) rotate(-42) scale(.62)"><g class="leaf" style="--d:2.2s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(170 70) rotate(-140) scale(.5)"><g class="leaf" style="--d:2.4s"><use class="blade" href="#leaf-blade"/><use class="vein" href="#leaf-vein"/></g></g>
+      <g transform="translate(172 18)"><circle class="bud" r="6" style="--d:2.6s"/></g>
+      <g transform="translate(118 300)"><circle class="bud" r="3.5" style="--d:2.7s"/></g>
+      <g transform="translate(198 236)"><circle class="bud" r="3" style="--d:2.8s"/></g>
+    </g>
+  </svg>
+</div>
+
+  <section class="menu" id="uslugi" aria-labelledby="uslugi-h">
+    <div class="wrap">
+      <div class="section-head">
+        <svg class="sprig" viewBox="0 0 72 40" aria-hidden="true" focusable="false"><path class="s-stem" pathLength="1" d="M2 36 C 20 32, 40 22, 70 6"/><path class="s-leaf" style="transform-origin:22px 31px" d="M22 31 C 20 20, 26 12, 34 8 C 34 18, 30 26, 22 31 Z"/><path class="s-leaf" style="transform-origin:40px 22px" d="M40 22 C 46 30, 56 32, 64 30 C 58 22, 50 19, 40 22 Z"/><path class="s-leaf" style="transform-origin:54px 14px" d="M54 14 C 52 6, 56 1, 62 -1 C 62 6, 60 11, 54 14 Z"/></svg>
+        <h2 id="uslugi-h">Услуги и цены</h2>
+        <p>Цены – за процедуру, итог мастер называет до начала работы. Если по ходу понадобится что-то ещё, сначала спросим.</p>
+      </div>
+
+      <div class="zones">
+        <div class="zone">
+          <figure class="zone-photo">
+            <img src="img/hair-1.jpg" alt="Мастер моет волосы клиентке в салоне" loading="lazy">
+            <img src="img/hair-2.jpg" alt="Уход за длинными волосами у мойки" loading="lazy">
+          </figure>
+          <h3>Волосы</h3>
+          <p class="how"><b>Как бережно:</b> красители без аммиака, температура утюжка и фена подбирается под волосы.</p>
+          <ul>
+            <li><span class="name">Женская стрижка</span><span class="time">60 мин</span><span class="price">от 3 500 ₽</span></li>
+            <li><span class="name">Безаммиачное окрашивание в один тон</span><span class="time">2 ч</span><span class="price">от 6 500 ₽</span></li>
+            <li><span class="name">Spa-уход для волос с восстановлением</span><span class="time">60 мин</span><span class="price">от 4 000 ₽</span></li>
+            <li><span class="name">Пилинг кожи головы</span><span class="time">40 мин</span><span class="price">от 2 800 ₽</span></li>
+            <li><span class="name">Укладка</span><span class="time">45 мин</span><span class="price">от 2 500 ₽</span></li>
+          </ul>
+        </div>
+
+        <div class="zone">
+          <figure class="zone-photo">
+            <img src="img/nails-1.jpg" alt="Руки с натуральным розовым маникюром" loading="lazy">
+            <img src="img/nails-2.jpg" alt="Рука с аккуратным френч-маникюром держит цветок" loading="lazy">
+          </figure>
+          <h3>Ногти</h3>
+          <p class="how"><b>Как бережно:</b> необрезной маникюр, кутикулу не срезаем и не спиливаем фрезой.</p>
+          <ul>
+            <li><span class="name">Японский маникюр</span><span class="time">60 мин</span><span class="price">от 2 900 ₽</span></li>
+            <li><span class="name">Spa-маникюр</span><span class="time">75 мин</span><span class="price">от 3 400 ₽</span></li>
+            <li><span class="name">Педикюр с уходом</span><span class="time">90 мин</span><span class="price">от 4 200 ₽</span></li>
+            <li><span class="name">Укрепление ногтей</span><span class="time">30 мин</span><span class="price">от 1 500 ₽</span></li>
+            <li><span class="name">Парафинотерапия для рук</span><span class="time">20 мин</span><span class="price">от 1 200 ₽</span></li>
+          </ul>
+        </div>
+
+        <div class="zone">
+          <figure class="zone-photo">
+            <img src="img/face-1.jpg" alt="Косметолог кисточкой наносит маску на лицо" loading="lazy">
+            <img src="img/face-2.jpg" alt="Клиентка отдыхает с увлажняющей маской на лице" loading="lazy">
+          </figure>
+          <h3>Лицо</h3>
+          <p class="how"><b>Как бережно:</b> уходовая косметология без уколов и аппаратов, которые травмируют кожу.</p>
+          <ul>
+            <li><span class="name">Мягкая чистка лица</span><span class="time">75 мин</span><span class="price">от 4 500 ₽</span></li>
+            <li><span class="name">Массаж лица</span><span class="time">45 мин</span><span class="price">от 3 200 ₽</span></li>
+            <li><span class="name">Энзимный пилинг лица</span><span class="time">40 мин</span><span class="price">от 3 000 ₽</span></li>
+            <li><span class="name">Увлажняющий уход для лица</span><span class="time">60 мин</span><span class="price">от 4 000 ₽</span></li>
+          </ul>
+        </div>
+
+        <div class="zone">
+          <figure class="zone-photo">
+            <img src="img/body-1.jpg" alt="Массаж тёплыми камнями, рядом белые орхидеи" loading="lazy">
+            <img src="img/body-2.jpg" alt="Мастер готовит масло для массажа тела" loading="lazy">
+          </figure>
+          <h3>Тело</h3>
+          <p class="how"><b>Как бережно:</b> шугаринг вместо воска, обертывания без жгучих составов.</p>
+          <ul>
+            <li><span class="name">Массаж тела</span><span class="time">60 мин</span><span class="price">от 4 500 ₽</span></li>
+            <li><span class="name">Spa-обертывание</span><span class="time">60 мин</span><span class="price">от 4 200 ₽</span></li>
+            <li><span class="name">Пилинг тела</span><span class="time">40 мин</span><span class="price">от 3 000 ₽</span></li>
+            <li><span class="name">Шугаринг, голени</span><span class="time">40 мин</span><span class="price">от 2 200 ₽</span></li>
+          </ul>
+        </div>
+
+        <div class="zone">
+          <h3>Брови и ресницы</h3>
+          <p class="how"><b>Как бережно:</b> состав держим ровно по времени и сразу наносим уход.</p>
+          <ul>
+            <li><span class="name">Ламинирование ресниц</span><span class="time">60 мин</span><span class="price">от 2 800 ₽</span></li>
+            <li><span class="name">Ламинирование бровей</span><span class="time">50 мин</span><span class="price">от 2 600 ₽</span></li>
+            <li><span class="name">Коррекция бровей</span><span class="time">20 мин</span><span class="price">от 1 000 ₽</span></li>
+            <li><span class="name">Окрашивание бровей</span><span class="time">20 мин</span><span class="price">от 900 ₽</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">Цены и длительность приведены как пример: это учебный сайт гипотетического салона.</p>
+    </div>
+  </section>
+
+  <section class="wrap visit" id="vizit" aria-labelledby="vizit-h">
+    <div class="section-head">
+      <svg class="sprig" viewBox="0 0 72 40" aria-hidden="true" focusable="false"><path class="s-stem" pathLength="1" d="M2 36 C 20 32, 40 22, 70 6"/><path class="s-leaf" style="transform-origin:22px 31px" d="M22 31 C 20 20, 26 12, 34 8 C 34 18, 30 26, 22 31 Z"/><path class="s-leaf" style="transform-origin:40px 22px" d="M40 22 C 46 30, 56 32, 64 30 C 58 22, 50 19, 40 22 Z"/><path class="s-leaf" style="transform-origin:54px 14px" d="M54 14 C 52 6, 56 1, 62 -1 C 62 6, 60 11, 54 14 Z"/></svg>
+      <h2 id="vizit-h">Как проходит визит</h2>
+      <p>Первый раз займёт на 10–15 минут больше: мастеру нужно познакомиться с вашими волосами, ногтями или кожей.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Запись</h3><p>По телефону или в Telegram. Подскажем, к какому мастеру идти и сколько времени заложить.</p></li>
+      <li><h3>Консультация перед процедурой</h3><p>Мастер смотрит состояние волос, ногтей или кожи и предлагает уход. Если что-то лучше не делать сейчас, скажет об этом прямо.</p></li>
+      <li><h3>Процедура</h3><p>Без спешки и без «потерпите». Неприятно или горячо – говорите, мастер остановится.</p></li>
+      <li><h3>Рекомендации после</h3><p>Расскажем, сколько держится результат и как его сохранить до следующего визита.</p></li>
+    </ol>
+  </section>
+
+  <section class="contact" id="kontakty" aria-labelledby="kontakty-h">
+    <svg class="big-leaf" viewBox="0 0 400 200" aria-hidden="true" focusable="false">
+      <path class="bl-blade" d="M10 100 C 80 10, 260 0, 390 90 C 270 170, 90 190, 10 100 Z"/>
+      <path d="M10 100 Q 200 92 386 90"/>
+      <path d="M90 98 Q 120 60 150 40 M150 96 Q 190 52 225 30 M215 94 Q 255 54 290 42 M90 100 Q 125 132 160 155 M155 96 Q 200 140 235 162 M220 94 Q 262 130 300 140"/>
+    </svg>
+    <div class="wrap">
+      <div class="section-head">
+        <svg class="sprig" viewBox="0 0 72 40" aria-hidden="true" focusable="false"><path class="s-stem" pathLength="1" d="M2 36 C 20 32, 40 22, 70 6"/><path class="s-leaf" style="transform-origin:22px 31px" d="M22 31 C 20 20, 26 12, 34 8 C 34 18, 30 26, 22 31 Z"/><path class="s-leaf" style="transform-origin:40px 22px" d="M40 22 C 46 30, 56 32, 64 30 C 58 22, 50 19, 40 22 Z"/><path class="s-leaf" style="transform-origin:54px 14px" d="M54 14 C 52 6, 56 1, 62 -1 C 62 6, 60 11, 54 14 Z"/></svg>
+        <h2 id="kontakty-h">Записаться в студию</h2>
+        <p>Ответим в течение 15 минут в рабочее время.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Адрес</dt><dd>Москва, ЦАО, 5 минут пешком от метро «Кропоткинская»</dd></div>
+        <div><dt>Часы работы</dt><dd>Ежедневно с 10:00 до 21:00</dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+74950000000">+7 495 000-00-00</a></dd></div>
+      </dl>
+      <div class="actions">
+        <a class="btn" href="tel:+74950000000">Позвонить</a>
+        <a class="btn btn-quiet" href="https://t.me/" rel="noopener">Написать в Telegram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Учебный проект: салон «Бережно», адрес, телефон и цены вымышлены. Фото – Unsplash.</div>
+</footer>
+
+<script>
+  // Веточки у разделов прорисовываются, когда раздел появляется на экране
+  (function () {
+    var sprigs = document.querySelectorAll('.sprig');
+    if (!('IntersectionObserver' in window)) { sprigs.forEach(function (s) { s.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    sprigs.forEach(function (s) { io.observe(s); });
+  })();
+</script>
+</body>
+</html>
